@@ -24,9 +24,14 @@ export default {
         filteredApiURL += `?name=${store.searchText}`;
       };
 
-      if (store.status !== "Any"){
+      if (store.status !== "Any" && store.searchText == ""){
+        filteredApiURL += `?status=${store.status}`
+      } 
+      else if (store.status !== "Any" && store.searchText !== ""){
         filteredApiURL += `&status=${store.status}`
-      };
+      }
+        
+      
       
 
 
