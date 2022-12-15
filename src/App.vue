@@ -18,11 +18,19 @@ export default {
   },
   methods: {
     getCharacters() {
+
+      let filteredApiURL = store.apiURL;
+      if (store.searchText !== ""){
+        filteredApiURL += `?name=${store.searchText}`;
+      }
       axios
-        .get(store.apiURL)
+        .get(filteredApiURL)
         .then(res => {
           store.characterList = res.data.results;
         })
+    },
+    clearText() {
+      store.searchText = "";
     }
   },
   mounted(){
@@ -33,7 +41,7 @@ export default {
 
 <template>
   <main>
-    <Search></Search>
+    <Search @search="getCharacters" @reset="clearText"></Search>
     <CharacterList></CharacterList>
   </main>
 </template>
