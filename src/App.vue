@@ -1,5 +1,6 @@
 <script>
 import CharacterList from './components/CharacterList.vue'
+import Search from './components/Search.vue'
 import axios from 'axios';
 
 import { store } from '../src/store';
@@ -7,7 +8,8 @@ import { store } from '../src/store';
 export default {
   name: "App",
   components: {
-    CharacterList
+    CharacterList,
+    Search,
   },
   data() {
     return {
@@ -31,6 +33,7 @@ export default {
 
 <template>
   <main>
+    <Search></Search>
     <CharacterList></CharacterList>
   </main>
 </template>
