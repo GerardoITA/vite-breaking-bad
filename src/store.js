@@ -4,4 +4,5 @@ export const store = reactive({
     characterList:[],
     apiURL: "https://rickandmortyapi.com/api/character",
     searchText: "",
+    status: "Any",
 }); 

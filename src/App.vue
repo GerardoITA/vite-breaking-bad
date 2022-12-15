@@ -22,7 +22,14 @@ export default {
       let filteredApiURL = store.apiURL;
       if (store.searchText !== ""){
         filteredApiURL += `?name=${store.searchText}`;
-      }
+      };
+
+      if (store.status !== "Any"){
+        filteredApiURL += `&status=${store.status}`
+      };
+      
+
+
       axios
         .get(filteredApiURL)
         .then(res => {
